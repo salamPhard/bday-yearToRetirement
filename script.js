@@ -11,10 +11,24 @@ document.querySelector('.check').addEventListener('click', function () {
     else if (typeof age !== "number" || typeof currentYear !== 'number') {
         document.querySelector('.message').textContent = "🤦‍♀️ Sorry you can only enter numeric values"
     }
+    else if (age >= currentYear) {
+        document.querySelector('.message').textContent = "🤦‍♀️ Sorry Your age cannot be greater or equal to the current year"
+    }
     else {
-        document.querySelector('.yob').textContent = yearOfBirth;
-        document.querySelector('.ytr').textContent = retirementYear;
-        document.querySelector('body').style.background = "#60b347";
+        if (retirementYear < 20) {
+            document.querySelector('.yob').textContent = yearOfBirth;
+            document.querySelector('.ytr').textContent = retirementYear;
+            document.querySelector('body').style.background = "#60b347";
+            document.querySelector('.message').textContent = "🤦‍♀️ Oh, you have less year to your retirement, please plan more"
+        }
+        else {
+            document.querySelector('.yob').textContent = yearOfBirth;
+            document.querySelector('.ytr').textContent = retirementYear;
+            document.querySelector('body').style.background = "#60b347";
+
+
+        }
+
     }
 
 
